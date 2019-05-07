@@ -1,7 +1,7 @@
 # qaac-batch-converter
 **What's this**  
 So this is the one you're looking for to convert every file inside a folder.  
-Right-click on the qaac.ps1 file, fill every argument, save and run.
+Right-click on the qaac.ps1 file, choose edit and fill every argument, save and run.
 
 **How to use**  
 The first few line until five blank line that the most common argument you want to change.  
