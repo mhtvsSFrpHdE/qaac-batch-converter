@@ -1,5 +1,5 @@
 ﻿# Preset argument
-$sourceFolder="C:\Program Files\7-zip"
+$inputFolder="C:\Program Files\7-zip"
 $outputFolder="C:\Program Files\7-zip\out"
 # Filter file extension name
 $sourceFileType=".tta"
@@ -45,7 +45,7 @@ function DoSomethingFunction {
 # Load folder itr function
 . ".\folder-iterator.ps1"
 # Run function
-FolderIterator -SourceFolder $sourceFolder -OutputFolder $outputFolder -SourceFileType $sourceFileType -SourceFileType2 $sourceFileType2
+FolderIterator -SourceFolder $inputFolder -OutputFolder $outputFolder -SourceFileType $sourceFileType -SourceFileType2 $sourceFileType2
 
 # Extreme hack method to execute part 3
 # Write pause and exit at the end of cmd script
