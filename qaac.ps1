@@ -2,9 +2,9 @@
 $inputFolder="C:\Program Files\7-zip"
 $outputFolder="C:\Program Files\7-zip\out"
 # Filter file extension name
-$sourceFileType=".tta"
+$inputFileType=".tta"
 # 2nd format, use only with rare situation
-$sourceFileType2=$sourceFileType
+$inputFileType2=$inputFileType
 # Const var write as upper case with underscore
 # NOTE: There are three quote with the BIN variable
 $QAAC_BIN = """C:\qaac.exe"""
@@ -45,7 +45,7 @@ function DoSomethingFunction {
 # Load folder itr function
 . ".\folder-iterator.ps1"
 # Run function
-FolderIterator -SourceFolder $inputFolder -OutputFolder $outputFolder -SourceFileType $sourceFileType -SourceFileType2 $sourceFileType2
+FolderIterator -SourceFolder $inputFolder -OutputFolder $outputFolder -inputFileType $inputFileType -inputFileType2 $inputFileType2
 
 # Extreme hack method to execute part 3
 # Write pause and exit at the end of cmd script
