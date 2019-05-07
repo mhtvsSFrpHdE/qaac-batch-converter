@@ -5,7 +5,7 @@ Right-click on the qaac.ps1 file, choose edit and fill every argument, save and 
 
 **How to use**  
 It's require my another powershell library to work:  
-https://github.com/mhtvsSFrpHdE/folder-iterator
+https://github.com/mhtvsSFrpHdE/folder-iterator  
 Download the iterator and put it into the same folder as qaac ps1.
 
 The first few line until five blank line in qaac ps1 that the most common argument you want to change.  
