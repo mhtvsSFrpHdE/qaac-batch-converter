@@ -36,6 +36,7 @@ function DoSomethingFunction {
     # Filter Output file extension
     $OutputFile = $OutputFileName + $OUTPUT_FORMAT
 
+	# Generate command
     $myCommand = "$FFMPEG_BIN -i ""$InputFile"" -f wav pipe: | $QAAC_BIN --tvbr 127 -q 2 --no-optimize - -o ""$OutPutFile"""
 	# Extreme hack method to execute part 2
 	# Write command with argument to cmd script
