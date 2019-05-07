@@ -4,7 +4,11 @@ So this is the one you're looking for to convert every file inside a folder.
 Right-click on the qaac.ps1 file, choose edit and fill every argument, save and run.
 
 **How to use**  
-The first few line until five blank line that the most common argument you want to change.  
+It's require my another powershell library to work:  
+https://github.com/mhtvsSFrpHdE/folder-iterator
+Download the iterator and put it into the same folder as qaac ps1.
+
+The first few line until five blank line in qaac ps1 that the most common argument you want to change.  
 They're:
 - $inputFolder: Where the input folder, all subfolder and files are reconized.
 - $outputFolder: Where the output folder, all output stored together and subfolder from source is ignored.
