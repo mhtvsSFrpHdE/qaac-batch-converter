@@ -14,19 +14,24 @@ $FFMPEG_BIN = "C:\ffmpeg.exe"
 
 
 
+# Other default values
 $OUTPUT_FORMAT = ".m4a"
-$HACK_CMD = "$outputFolder\qaac.cmd"
+$CMD_SCRIPT_FILE = "$outputFolder\QaacBatch.cmd"
 
-# Extreme hack method to execute part 1
-# Write cmd script
+# Import library
+# cmd script lib
+. ".\cstpw.ps1"
+# folder itr lib
+. ".\folder-iterator.ps1"
 
-# This meanless line to trigger a common type error
-# But it can let cmd.exe ignore the unsupported UTF-8 "BOM"
-"gUsJAzrtybEx" | Out-File -LiteralPath "$HACK_CMD" -Encoding UTF8
+# Create cmd script file by using library
+CreateCmdScript
+
 # So Windows XP doesn't really have a UTF-8 code page, will not work on that.
 # Use 65001 code page to cover the non-ANSI file name.
-"chcp 65001" | Add-Content -LiteralPath "$HACK_CMD" -Encoding UTF8
+WriteCmdScript "chcp 65001"
 
+# Fill folder iterator function
 function DoSomethingFunction {
     param (
         $InputFile,
@@ -40,20 +45,18 @@ function DoSomethingFunction {
     $myCommand = "`"$FFMPEG_BIN`" -i `"$InputFile`" -f wav pipe: | `"$QAAC_BIN`" --tvbr 127 -q 2 --no-optimize - -o `"$OutPutFile`""
 
 	# Write command with argument to cmd script
-	$myCommand | Add-Content -LiteralPath "$HACK_CMD" -Encoding UTF8
+	WriteCmdScript $myCommand
 }
 
-# Load folder itr function
-. ".\folder-iterator.ps1"
 # Run function
-FolderIterator -SourceFolder $inputFolder -OutputFolder $outputFolder -inputFileType $inputFileType -inputFileType2 $inputFileType2
+FolderIterator -InputFolder $inputFolder -OutputFolder $outputFolder -inputFileType $inputFileType -inputFileType2 $inputFileType2
 
 # Extreme hack method to execute part 3
 # Write pause and exit at the end of cmd script
-"pause" | Add-Content -LiteralPath "$HACK_CMD" -Encoding UTF8
-"exit" | Add-Content -LiteralPath "$HACK_CMD" -Encoding UTF8
+WriteCmdScript "pause"
+WriteCmdScript "exit"
 
 # Call explorer to simulate user double-click behavior
 # Double click this damn cmd script
-explorer "$HACK_CMD"
+explorer "$CMD_SCRIPT_FILE"
 exit
