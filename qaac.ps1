@@ -7,8 +7,8 @@ $inputFileType=".tta"
 $inputFileType2=$inputFileType
 # Const var write as upper case with underscore
 # NOTE: There are three quote with the BIN variable
-$QAAC_BIN = """C:\qaac.exe"""
-$FFMPEG_BIN = """C:\ffmpeg.exe"""
+$QAAC_BIN = "C:\qaac.exe"
+$FFMPEG_BIN = "C:\ffmpeg.exe"
 
 
 
@@ -37,8 +37,8 @@ function DoSomethingFunction {
     $OutputFile = $OutputFileName + $OUTPUT_FORMAT
 
 	# Generate command
-    $myCommand = "$FFMPEG_BIN -i ""$InputFile"" -f wav pipe: | $QAAC_BIN --tvbr 127 -q 2 --no-optimize - -o ""$OutPutFile"""
-	# Extreme hack method to execute part 2
+    $myCommand = "`"$FFMPEG_BIN`" -i `"$InputFile`" -f wav pipe: | `"$QAAC_BIN`" --tvbr 127 -q 2 --no-optimize - -o `"$OutPutFile`""
+
 	# Write command with argument to cmd script
 	$myCommand | Add-Content -LiteralPath "$HACK_CMD" -Encoding UTF8
 }
