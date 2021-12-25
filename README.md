@@ -1,7 +1,6 @@
-# qaac-batch-converter
-**Contact**  
-See https://github.com/mhtvsSFrpHdE/contact-me  
+![](https://raw.githubusercontent.com/mhtvsSFrpHdE/contact-me/master/AboutIssue.svg)
 
+# qaac-batch-converter
 **What's this**  
 So this is the one you're looking for to convert every file inside a folder.  
 Right-click on the qaac.ps1 file, choose edit and fill every argument, save and run.
